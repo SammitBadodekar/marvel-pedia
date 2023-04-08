@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&family=Righteous&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>events-info</title>
+</head>
+<body>
+    <section class="flex info-nav">
+        <a href="/" class="back-button"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48" fill="#fff"><path d="M480 896 160 576l320-320 42 42-248 248h526v60H274l248 248-42 42Z"/></svg></a>
+        <a href="/"><img src="icons&svg/Ephoto360.com_1642bf527ee43e.jpg" alt="" class="info-page-marvel-logo"></a>
+    </section>
+    <div class="info-container flex">
+        <img src="<%= eventsImg %>" alt="Character image" class="char-image">
+        <h3 id="char-name" class="heading-font"><%= eventsName %></h3>
+        <p id="char-desc"><%= eventsDesc %></p>
+    </div>
+    <div class="flex nextevent">
+        <div>        <h3 id="char-name" class="heading-font">Previous Event: </h3>
+        <a href="/events-info?query=<%= prev %>"><%= prev %></a> </div>
+        <div><h3 id="char-name" class="heading-font">Next Event:  </h3>
+        <a href="/events-info?query=<%= next %>"><%= next %></a></div>  
+    </div>
+</body>
+</html>
+</body>
+</html>

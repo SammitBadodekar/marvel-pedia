@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&family=Righteous&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>Character Info</title>
+</head>
+<body>
+    <section class="flex info-nav">
+        <a href="/" class="back-button"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48" fill="#fff"><path d="M480 896 160 576l320-320 42 42-248 248h526v60H274l248 248-42 42Z"/></svg></a>
+        <a href="/"><img src="icons&svg/Ephoto360.com_1642bf527ee43e.jpg" alt="" class="info-page-marvel-logo"></a>
+    </section>
+    <div class="info-container flex">
+        <img src="<%= charImg %>" alt="Character image" class="char-image">
+        <h3 id="char-name" class="heading-font"><%= charName %></h3>
+        <p id="char-desc"><%= charDesc %></p>
+        <h3 class="heading-font">Events in which <%= charName %> has appeared:</h3>
+        <div class="char-events" >
+            <% JSON.parse(eveName).forEach(element => { %>
+                <a href="/events-info?query=<%=element.name%>">
+                    <p class="events-names"><%= element.name %></p>
+                  <% }); %>
+                </a>
+        </div>
+        <h3 class="heading-font">Comic appearances of <%= charName %>:</h3>
+        <div id="char-comics">
+                <% JSON.parse(comName).forEach(element => { %>
+                <a href="/comics-info?query=<%=element.id%>">
+                    <img src="<%=element.thumbnail.path%>.<%=element.thumbnail.extension%>" alt="">
+                    <p><%= element.title %></p>
+                  <% }); %>
+                </a>
+        </div>   
+    </div>
+</body>
+</html>
