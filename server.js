@@ -1,6 +1,7 @@
 const express = require('express');
 const { send } = require('express/lib/response');
 const app = express();
+const axios = require("axios");
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 app.listen(3000, () => {
@@ -131,17 +132,20 @@ app.get('/events-info',(req,res)=>{
 })
 app.get('/movies-info',async(req,res)=>{
   const query = req.query.query;
-  const { default: fetch } = await import('node-fetch');
-      const RawMoviesData = await fetch(`https://www.omdbapi.com/?t=${query}&apikey=a664b916`)
-      const JsonMovieData = await RawMoviesData.json()
-      let moviesInfo = Object.values(JsonMovieData)
+  const options = {
+    method: 'GET',
+    url: `https://www.omdbapi.com/?t=${query}&apikey=a664b916`
+  };
+  
+      const RawMoviesData = await axios.request(options)
+      console.log(RawMoviesData.data.Title)
       res.render('movies-info',{
-        movieImg:`${moviesInfo[13]}`,
-        movieName:`${moviesInfo[0]}`,
-        movieCast:`${moviesInfo[8]}`,
-        movieDesc:`${moviesInfo[9]}`,
-        movieRating:`${moviesInfo[16]}`
-      })
+        movieImg:`${RawMoviesData.data.Poster}`,
+        movieName:`${RawMoviesData.data.Title}`,
+        movieCast:`${RawMoviesData.data.Actors}`,
+        movieDesc:`${RawMoviesData.data.Plot}`,
+        movieRating:`${RawMoviesData.data.imdbRating}`
+      }) 
     })
 /*for getting comic img,name,descriptions in which character has appeared*/
 function comicNameInfo(charId) {
