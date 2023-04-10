@@ -138,13 +138,15 @@ app.get('/movies-info',async(req,res)=>{
   };
   
       const RawMoviesData = await axios.request(options)
-      console.log(RawMoviesData.data.Title)
       res.render('movies-info',{
         movieImg:`${RawMoviesData.data.Poster}`,
         movieName:`${RawMoviesData.data.Title}`,
         movieCast:`${RawMoviesData.data.Actors}`,
+        movieDirector:`${RawMoviesData.data.Director}`,
         movieDesc:`${RawMoviesData.data.Plot}`,
-        movieRating:`${RawMoviesData.data.imdbRating}`
+        movieRuntime:`${RawMoviesData.data.Runtime}`,
+        movieRating:`${RawMoviesData.data.imdbRating}`,
+        movieBoxOffice:`${RawMoviesData.data.BoxOffice}`
       }) 
     })
 /*for getting comic img,name,descriptions in which character has appeared*/

@@ -1,6 +1,6 @@
-window.addEventListener('load', function() {
-    document.getElementById('preloader').style.display = 'none';
-  });
+setTimeout(()=>{
+    document.getElementById('preloader').style.display = 'none';  
+    },2000)
 
 document.addEventListener('click', function(event) {
     if (event.target.matches('a') || event.target.matches('img') || event.target.matches('h4')) {
