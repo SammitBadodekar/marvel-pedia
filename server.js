@@ -161,9 +161,7 @@ app.get("/events-info", (req, res) => {
       res.render("events-info", {
         eventsImg: `${eveInfo.thumbnail.path}.${eveInfo.thumbnail.extension}`,
         eventsName: `${eveInfo.title}`,
-        eventsDesc: `${eveInfo.description}`,
-        prev: `${eveInfo.previous.name}`,
-        next: `${eveInfo.next.name}`,
+        eventsDesc: `${eveInfo.description}`
       });
     }
   });
