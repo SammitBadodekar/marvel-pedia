@@ -1,6 +1,6 @@
 # marvel-pedia
 
-This web is live on https://filthy-pear-ray.cyclic.app/
+This website is live on https://filthy-pear-ray.cyclic.app/
 
 This is a website that provides information about Marvel Comics characters, movies, and TV shows. It is built with Node.js, Express, HTML, EJS, CSS, and uses the Marvel API and OMDb API to fetch data.
 
