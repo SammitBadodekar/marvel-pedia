@@ -52,9 +52,10 @@ input {
     background-color: var(--light-font);
     font-family: var(--quotes-font);
     border: none;
-    border-radius: 0.2rem;
+    border-radius: 1rem;
     width: 55%;
     z-index: 5;
+    height: 2rem;
 }
 #search-result{
     display: none;
@@ -123,12 +124,22 @@ a{
     width: 10rem;
     height: 10rem;
   }
-
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2c2b2b; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 /* info pages */
 

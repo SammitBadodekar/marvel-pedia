@@ -13,7 +13,7 @@
     <title>Marvel Pedia</title>
 </head>
 <body>
-    <nav class="flex">
+    <nav class="flex" id="top">
             <img src="icons&svg/1680612399802.png" alt="" class="marvel-logo">
             <input type="text" name="search-box" id="search-box" placeholder="search"> 
             <div id="search-result"></div>
@@ -32,7 +32,7 @@
         <div id="comics" class="flex characters">
 
         </div>
-        <h5 class="margin-left"><a href="/all-characters.html">Browse All Comics</a></h5>
+        <h5 class="margin-left" onclick="scrollToSection('top')">Search Comics</h5>
     </div>   
     </section>
     <section class="character-content flex">
@@ -40,7 +40,7 @@
         <div id="events" class="flex characters">
 
         </div>
-        <h5 class="margin-left"><a href="/all-characters.html">Browse All Comics Events</a></h5>
+        <h5 class="margin-left" onclick="scrollToSection('top')">Search Comics Events</h5>
     </div>   
     </section>
     <section>
