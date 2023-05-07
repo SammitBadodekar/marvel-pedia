@@ -3,7 +3,11 @@ setTimeout(() => {
 }, 2000);
 function scrollToSection(id) {
   var element = document.getElementById(id);
-  element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  element.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest",
+  });
 }
 
 document.addEventListener("click", function (event) {
@@ -24,31 +28,31 @@ let searchBox = document.getElementById("search-box");
 let searchResults = document.getElementById("search-result");
 searchBox.addEventListener("input", async () => {
   searchResultsHtml.style.display = "grid";
-    let searchInputs = searchBox.value;
-    if (searchInputs === "") {
-      searchResults.innerHTML = "";
-    } else {
-      searchResults.innerHTML = "Searching...";
-    }
+  let searchInputs = searchBox.value;
+  if (searchInputs === "") {
     searchResults.innerHTML = "";
-    let rawCharNameData = await fetch(`/characters?query=${searchInputs}`);
-    let charNameData = await rawCharNameData.json();
-    const charNames = Object.entries(charNameData);
-    for(i=1;i<6;i++){
-        searchResults.innerHTML += `<p><a href="/character-info?query=${charNames[i][1].id}">${charNames[i][1].name}</a></p>`;
-    }
-    let rawComicsNameData = await fetch(`/comics?query=${searchInputs}`);
-    let comicsNameData = await rawComicsNameData.json();
-    const comNames = Object.entries(comicsNameData);
-    for(i=1;i<6;i++){
-        searchResults.innerHTML += `<p><a href="/comics-info?query=${comNames[i][1].id}">${comNames[i][1].title}</a></p>`;
-    }
-    let rawEventsNameData = await fetch(`/events?query=${searchInputs}`);
-    let EventsNameData = await rawEventsNameData.json();
-    const EventsNames = Object.entries(EventsNameData);
-    for(i=1;i<6;i++){
-        searchResults.innerHTML += `<p><a href="/events-info?query=${EventsNames[i][1].title}">${EventsNames[i][1].title}</a></p>`;
-    }
+  } else {
+    searchResults.innerHTML = "Searching...";
+  }
+  searchResults.innerHTML = "";
+  let rawCharNameData = await fetch(`/characters?query=${searchInputs}`);
+  let charNameData = await rawCharNameData.json();
+  const charNames = Object.entries(charNameData);
+  for (i = 1; i < 6; i++) {
+    searchResults.innerHTML += `<p><a href="/character-info?query=${charNames[i][1].id}">${charNames[i][1].name}</a></p>`;
+  }
+  let rawComicsNameData = await fetch(`/comics?query=${searchInputs}`);
+  let comicsNameData = await rawComicsNameData.json();
+  const comNames = Object.entries(comicsNameData);
+  for (i = 1; i < 6; i++) {
+    searchResults.innerHTML += `<p><a href="/comics-info?query=${comNames[i][1].id}">${comNames[i][1].title}</a></p>`;
+  }
+  let rawEventsNameData = await fetch(`/events?query=${searchInputs}`);
+  let EventsNameData = await rawEventsNameData.json();
+  const EventsNames = Object.entries(EventsNameData);
+  for (i = 1; i < 6; i++) {
+    searchResults.innerHTML += `<p><a href="/events-info?query=${EventsNames[i][1].title}">${EventsNames[i][1].title}</a></p>`;
+  }
 });
 
 let characterContent = document.getElementById("character");
@@ -149,6 +153,7 @@ const movies = [
   "Thor: Love and Thunder",
   "Black panther Wakanda Forever",
   "Ant-Man and the Wasp: Quantumania",
+  "Guardians of the Galaxy Vol. 3",
 ];
 const tvShows = [
   "Wandavision",
@@ -210,5 +215,5 @@ function getRandomComics() {
   return Math.floor(Math.random() * 40000);
 }
 function getRandomEvents() {
-  return Math.floor(Math.random() * 72);
+  return Math.floor(Math.random() * 0);
 }

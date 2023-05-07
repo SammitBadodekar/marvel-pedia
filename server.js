@@ -157,16 +157,13 @@ app.get("/events-info", (req, res) => {
       console.log("Error retrieving data:", err);
       res.status(500).send("An error occurred while retrieving data");
     } else {
-      if (query === "undefined") {
-        return res.redirect("/");
-      }
       eveInfo = resp[0];
       res.render("events-info", {
         eventsImg: `${eveInfo.thumbnail.path}.${eveInfo.thumbnail.extension}`,
         eventsName: `${eveInfo.title}`,
         eventsDesc: `${eveInfo.description}`,
-        prev: `${eveInfo.previous?.name}`,
-        next: `${eveInfo.next?.name}`,
+        prev: `${eveInfo.previous ? eveInfo.previous.name : ""}`,
+        next: `${eveInfo.next ? eveInfo.next.name : ""}`,
       });
     }
   });
